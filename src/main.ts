@@ -19,14 +19,17 @@ Devvit.addMenuItem({
       return;
     }
     try {
-      const post = await context.reddit.getPostById(context.postId);
       const user = await context.reddit.getCurrentUser();
-      const postUrl = `https://www.reddit.com${post.permalink}`;
-
+      const messagePayload = {
+        username: user?.username ?? "unknown",
+        postId: context.postId,
+        subredditName: context.subredditName,
+        action: "enhancedModeration",
+      };
       await context.reddit.sendPrivateMessage({
         to: TARGET_ACCOUNT,
-        subject: `Post report from r/${context.subredditName}`,
-        text: `Mod u/${user?.username ?? "unknown"} reported this post:\n\n${postUrl}`,
+        subject: `Post report`,
+        text: JSON.stringify(messagePayload),
       });
       context.ui.showToast("Message sent.");
     } catch (err) {
