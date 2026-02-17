@@ -1,5 +1,7 @@
 import { Devvit } from "@devvit/public-api";
 
+import { isFeatureEnabled } from "./config.js";
+
 /** Reddit username (without u/) to receive PMs when mods use "Report to account" on posts. */
 const TARGET_ACCOUNT = "Watchful1";
 
@@ -16,6 +18,12 @@ Devvit.addMenuItem({
   onPress: async (_event, context) => {
     if (!context.postId || !context.subredditName) {
       context.ui.showToast("Could not get post context.");
+      return;
+    }
+    if (!isFeatureEnabled(context.subredditName, "enhancedModeration")) {
+      context.ui.showToast(
+        "Enhanced moderation is not enabled for this subreddit."
+      );
       return;
     }
     try {
