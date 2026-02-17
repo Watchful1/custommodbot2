@@ -1,16 +1,16 @@
 import { Devvit } from "@devvit/public-api";
 
 /** Reddit username (without u/) to receive PMs when mods use "Report to account" on posts. */
-const TARGET_ACCOUNT = "YourBotAccount";
+const TARGET_ACCOUNT = "CustomModBot";
 
 Devvit.configure({
   redditAPI: true,
 });
 
 Devvit.addMenuItem({
-  label: "Report to account",
+  label: "Apply enhanced moderation",
   description:
-    "Send a private message about this post to the configured account.",
+    "Trigger enhanced moderation on a thread. For large threads this can take several minutes.",
   location: "post",
   forUserType: "moderator",
   onPress: async (_event, context) => {
