@@ -1,7 +1,7 @@
 import { Devvit } from "@devvit/public-api";
 
 /** Reddit username (without u/) to receive PMs when mods use "Report to account" on posts. */
-const TARGET_ACCOUNT = "CustomModBot";
+const TARGET_ACCOUNT = "Watchful1";
 
 Devvit.configure({
   redditAPI: true,
@@ -31,7 +31,7 @@ Devvit.addMenuItem({
         subject: `Post report`,
         text: JSON.stringify(messagePayload),
       });
-      context.ui.showToast("Message sent.");
+      context.ui.showToast("Enhanced moderation triggered.");
     } catch (err) {
       console.error(err);
       context.ui.showToast("Failed to send message.");
