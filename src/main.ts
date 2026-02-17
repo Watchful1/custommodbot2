@@ -1,9 +1,6 @@
 import { Devvit } from "@devvit/public-api";
 
-import { isFeatureEnabled } from "./config.js";
-
-/** Reddit username (without u/) to receive PMs when mods use "Report to account" on posts. */
-const TARGET_ACCOUNT = "Watchful1";
+import { isFeatureEnabled, TARGET_ACCOUNT } from "./config.js";
 
 Devvit.configure({
   redditAPI: true,

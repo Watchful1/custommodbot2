@@ -3,6 +3,10 @@
  * Subreddit names are case-insensitive (use lowercase in config).
  * Subreddits not listed default to all features disabled.
  */
+
+/** Reddit username (without u/) to receive PMs when mods use enhanced moderation. */
+export const TARGET_ACCOUNT = "CustomModBot";
+
 export type FeatureConfig = {
   enhancedModeration: boolean;
 };
