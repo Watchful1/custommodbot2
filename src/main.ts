@@ -2,10 +2,6 @@ import { Devvit } from "@devvit/public-api";
 
 import { isFeatureEnabled, TARGET_ACCOUNT } from "./config.js";
 
-Devvit.configure({
-  redditAPI: true,
-});
-
 Devvit.addMenuItem({
   label: "Apply enhanced moderation",
   description:
